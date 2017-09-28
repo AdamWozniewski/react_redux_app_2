@@ -8,15 +8,19 @@ import {fullWhite} from 'material-ui/styles/colors';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
 class SignUp extends Component {
-    entry(e) {
+
+    constructor(params) {
+        super(params);
+        this.newUser = this.newUser.bind(this);
+    }
+    newUser(e) {
         e.preventDefault();
-        console.log("logowanie");
-        // this.refs.loginForm.reset();
+        this.props.createNewCustomer(); // wywolanie akcji z actionCreator
     }
     render() {
         return (
             <div>
-                <form ref="loginForm" action="" onSubmit={this.entry}>
+                <form ref="loginForm" action="" onSubmit={this.newUser}>
                     <TextField
                         hintText="Login"
                     /><br />

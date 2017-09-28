@@ -8,12 +8,16 @@ import {fullWhite} from 'material-ui/styles/colors';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
 class Login extends Component {
+    constructor(params) {
+        super(params);
+        this.entry = this.entry.bind(this);
+    }
     entry(e) {
         e.preventDefault();
-        console.log(this.props.store)
         // this.refs.loginForm.reset();
     }
     render() {
+        console.log(this.props);
         return (
             <div>
                 <form ref="loginForm" action="" onSubmit={this.entry}>
@@ -28,6 +32,7 @@ class Login extends Component {
                         icon={<ActionAndroid color={fullWhite} />}
                         style={{margin: 12}}
                         type="submit"
+
                     />
                 </form>
                 <Link to='/forgot_password'>Zapomnialem hasla</Link>

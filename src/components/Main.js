@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import logo from '../logo.svg';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-
+import Login from "./login";
+import DinnersView from "./dinnersView";
+import Error404 from "./404";
+import SignUp from "./signup";
+import ForgottenPassword from "./forgottenPassword";
 
 class Main extends Component {
     render() {
-        console.log(this.props)
         return (
             <div className="App">
                 <Link to='/'>
@@ -17,11 +20,15 @@ class Main extends Component {
                 <p className="App-intro">
                     To get started, edit <code>src/App.js</code> and save to reload.
                 </p>
-                {/*{React.cloneElement(this.props.children, this.props)}*/}
-                {this.props.children}
 
+                <Switch>
+                    <Route exact path="/" render={(props)=><Login {...this.props}/>}/>
+                    <Route path="/sign_up" render={(props)=><SignUp {...this.props}/>} />
+                    <Route path="/forgot_password" render={(props)=><ForgottenPassword {...this.props}/>} />
+                    <Route path="/DinnersView" render={(props)=><DinnersView {...this.props}/>} />
+                    <Route path="/*" component={Error404} />
+                </Switch>
             </div>
-
         );
     }
 }

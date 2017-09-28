@@ -1,13 +1,17 @@
+import ACTION from '../static/ACTION';
+
 export function login(person, psswd) {
+    console.log("ActionCreator--- akcja logowanie");
     return {
-        type: 'LOGIN',
+        type: ACTION.LOGIN,
         person, psswd
     }
 }
 
-export function createNewCustomer(login, name, psswd) {
+export function createNewCustomer() {
+    console.log("ActionCreator--- akcja nowy user");
     return {
-        type: 'CREATE_CUSTOMER',
-        login, name, psswd
+        type: ACTION.CREATE_CUSTOMER,
+        // login, name, psswd
     }
 }

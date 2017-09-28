@@ -27,15 +27,7 @@ const router = (
     <Provider store={store}>
         <Router>
             <MuiThemeProvider>
-                <App>
-                    <Switch>
-                        <Route exact path="/" component={Login} />
-                        <Route path="/sign_up" component={SignUp} />
-                        <Route path="/forgot_password" component={ForgottenPassword} />
-                        <Route path="/DinnersView" component={DinnersView} />
-                        <Route path="/*" component={Error404} />
-                    </Switch>
-                </App>
+                <App/>
             </MuiThemeProvider>
         </Router>
     </Provider>

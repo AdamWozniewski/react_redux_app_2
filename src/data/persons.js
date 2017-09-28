@@ -1,4 +1,4 @@
-const person = [
+const persona = [
     {
         login: 'adam.w',
         name: 'Adam',
@@ -8,4 +8,4 @@ const person = [
     }
 ]
 
-export default person;
+export default persona;
