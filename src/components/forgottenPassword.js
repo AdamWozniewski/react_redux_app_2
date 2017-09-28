@@ -4,22 +4,50 @@ import ActionAndroid from 'material-ui/svg-icons/action/android';
 import RaisedButton from 'material-ui/RaisedButton';
 import {fullWhite} from 'material-ui/styles/colors';
 
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import Snackbar from 'material-ui/Snackbar';
+import { Field, reduxForm } from 'redux-form';
+
+import { Link } from 'react-router-dom';
+
+const renderTextField = ({
+     input,
+     label,
+     meta: { touched, error },
+     ...custom
+ }) =>
+<TextField
+    hintText={label}
+    floatingLabelText={label}
+    errorText={touched && error}
+    {...input}
+    {...custom}
+/>
 
 class ForgottenPassword extends Component {
-    entry(e) {
-        e.preventDefault();
-        console.log(this.refs.input);
-        this.refs.loginForm.reset();
+    constructor(params) {
+        super(params);
+        this.state = {
+            open: false
+        }
+        this.sendPasswordReminder = this.sendPasswordReminder.bind(this);
+    }
+    sendPasswordReminder(params) {
+        this.props.forgottenPassword(params);
+        this.setState({
+            open: true,
+        });
+        setTimeout(()=>{
+            this.props.history.push('/');
+        }, 2000);
     }
     render() {
         return (
             <div>
-                <form ref="loginForm" action="" onSubmit={this.entry.bind(this)}>
-                    <TextField
-                        hintText="Email"
-                        ref="input"
-                    /><br />
+                <form ref="loginForm" action="" onSubmit={this.props.handleSubmit(this.sendPasswordReminder)}>
+                    <Field name="email"
+                           component={renderTextField}
+                           label="Wprowadź swój email"
+                    /><br/>
                     <RaisedButton
                         backgroundColor="#a4c639"
                         icon={<ActionAndroid color={fullWhite} />}
@@ -28,9 +56,17 @@ class ForgottenPassword extends Component {
                     />
                 </form>
                 <Link to='/'>Wróc do logowania</Link>
+                <Snackbar
+                    open={ this.state.open }
+                    message="Przypomnienie hasła wysłane na maila"
+                    autoHideDuration={1000}
+                />
             </div>
         )
     }
 }
 
-export default ForgottenPassword;
+// export default ForgottenPassword;
+export default reduxForm({
+    form: 'forgottenPassword'
+})(ForgottenPassword)

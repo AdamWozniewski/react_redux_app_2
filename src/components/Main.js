@@ -6,6 +6,7 @@ import DinnersView from "./dinnersView";
 import Error404 from "./404";
 import SignUp from "./signup";
 import ForgottenPassword from "./forgottenPassword";
+import MyProfile from './myProfile';
 
 class Main extends Component {
     render() {
@@ -22,10 +23,12 @@ class Main extends Component {
                 </p>
 
                 <Switch>
-                    <Route exact path="/" render={(props)=><Login {...this.props}/>}/>
-                    <Route path="/sign_up" render={(props)=><SignUp {...this.props}/>} />
-                    <Route path="/forgot_password" render={(props)=><ForgottenPassword {...this.props}/>} />
-                    <Route path="/DinnersView" render={(props)=><DinnersView {...this.props}/>} />
+                    <Route exact path="/" render={(props) => <Login {...this.props} />} />
+                    <Route path="/sign_up" render={(props) => <SignUp {...this.props} />} />
+                    <Route path="/forgot_password" render={(props) => <ForgottenPassword {...this.props} />} />
+                    <Route path="/lobby" render={(props) => <DinnersView {...this.props} />}>
+                        {/*<Route exact path='/lobby/profile' render={(props)=> <MyProfile {...this.props} />} />*/}
+                    </Route>
                     <Route path="/*" component={Error404} />
                 </Switch>
             </div>

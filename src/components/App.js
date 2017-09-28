@@ -6,8 +6,9 @@ import { withRouter } from 'react-router';
 
 function mapStateToProps(state) {
     return {
-        dinner: state.dinner,
-        person: state.person
+        dinner: state.dinners,
+        persons: state.person,
+        loggedPerson: {},
     }
 }
 

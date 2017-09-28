@@ -1,10 +1,15 @@
 const persona = [
     {
-        login: 'adam.w',
+        login: 'adam',
+        psswd: 'promenada1',
         name: 'Adam',
         surname: 'W',
         email: 'adam.w@pw.plplplpl',
-        company: 'pagepro'
+        company: 'pagepro',
+        order: {
+            soup: false,
+
+        }
     }
 ]
 

@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import {GridList, GridTile} from 'material-ui/GridList';
+import { Link } from 'react-router-dom';
 import IconButton from 'material-ui/IconButton';
 import Subheader from 'material-ui/Subheader';
 import StarBorder from 'material-ui/svg-icons/toggle/star-border';
 
-import dinner from '../data/dinners';
+import date from '../static/date';
 
 class DinnersView extends Component {
     constructor(param) {
@@ -26,7 +27,7 @@ class DinnersView extends Component {
                     cellHeight={180}
                 >
                     <Subheader>Menu</Subheader>
-                    {dinner.map((tile) => (
+                    {this.props.dinner.map((tile) => (
                         <GridTile
                             key={tile.name}
                             title={tile.name}
@@ -35,6 +36,9 @@ class DinnersView extends Component {
                         </GridTile>
                     ))}
                 </GridList>
+                {/*{React.cloneElement(this.props.children, this.props)}*/}
+                {this.props.children}
+                <Link to='/'>Wyloguj</Link>
             </div>
         )
     }

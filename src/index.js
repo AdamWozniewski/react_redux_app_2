@@ -21,8 +21,9 @@ import MyProfile from './components/myProfile';
 import DinnersView from './components/dinnersView';
 import registerServiceWorker from './registerServiceWorker';
 
-import store, { history } from './store';
 
+
+import store, { history } from './store';
 const router = (
     <Provider store={store}>
         <Router>

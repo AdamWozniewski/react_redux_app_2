@@ -1,6 +1,7 @@
 const ACTION = {
     LOGIN: Symbol('LOGIN'),
-    CREATE_CUSTOMER: Symbol('CREATE_CUSTOMER')
+    CREATE_CUSTOMER: Symbol('CREATE_CUSTOMER'),
+    FORGOTTEN_PASSWORD: Symbol('FORGOTTEN_PASSWORD')
 }
 
 export default ACTION;
