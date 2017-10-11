@@ -42,7 +42,6 @@ class Login extends Component {
         } else {
             return false;
         }
-        console.log()
     }
 
     render() {

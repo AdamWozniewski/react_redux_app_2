@@ -4,7 +4,6 @@ import ACTION from '../static/ACTION'
 function person(state = persona, action) {
     switch (action.type) {
         case ACTION.LOGIN:
-            console.log(state);
             return state;
         case ACTION.CREATE_CUSTOMER:
             return [

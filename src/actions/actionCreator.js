@@ -4,12 +4,11 @@ export function login(person, psswd) {
     console.log("ActionCreator--- akcja logowanie");
     return {
         type: ACTION.LOGIN,
-        // person, psswd
+        person, psswd
     }
 }
 
 export function forgottenPassword({email}) {
-    console.log("ActionCreator--- akcja logowanie");
     return {
         type: ACTION.FORGOTTEN_PASSWORD,
         email

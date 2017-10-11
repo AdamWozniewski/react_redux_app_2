@@ -11,8 +11,8 @@ class DinnersView extends Component {
     constructor(param) {
         super(param);
         this.data = new Date();
-        this.dayOfWeek = ["Poniedziałek", "Wtorek", "Sroda", "Czwartek", "Piątek", "Sobota", "Niedziela"];
-        this.monthOfYear = ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec", "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"];
+        this.dayOfWeek = date.dayOfWeek;
+        this.monthOfYear = date.monthOfYear;
     }
 
     render() {
@@ -33,6 +33,7 @@ class DinnersView extends Component {
                             title={tile.name}
                             subtitle={<span><b>{tile.soup}</b></span>}
                         >
+
                         </GridTile>
                     ))}
                 </GridList>
